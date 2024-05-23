@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>jQuery Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+      .highlight {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="main-title">jQuery Example</h1>
+    <p class="intro">This is an introduction paragraph.</p>
+    <p class="intro">This is another introduction paragraph.</p>
+    <p>This is a normal paragraph.</p>
+    <ul>
+      <li>Item 1</li>
+      <li class="highlight">Item 2</li>
+      <li>Item 3</li>
+    </ul>
+    <button id="click-me">Click Me!</button>
+    <div id="content">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem id
+      explicabo harum maiores aliquid sed velit quae, doloribus architecto aut
+      amet sequi sunt soluta tempora iusto! Repudiandae expedita eum ducimus?
+    </div>
+
+    <script>
+      $(document).ready(() => {
+        // Selectors
+        // Type-ına görə elementi select etmək
+        $("p").css("color", "blue"); // Bütün p elementlərini seçib rəngini göy rəng edir
+
+        // ID-yə görə elementi select etmək
+        $("#main-title").css("font-size", "32px"); // ID-si 'main-title' olan elementi select edib font size-ını dəyişir
+
+        // Class-a görə elementi select etmək
+        $(".intro").css("font-weight", "bold"); // 'intro' class-lı elementləri seçib font weight bold edir
+
+        // Append və prepend
+        $("ul").append("<li>Appended Item</li>"); // List-in sonuna yeni <li> əlavə edir
+        $("ul").prepend("<li>Prepended Item</li>"); // List-in əvvəlinə yeni <li> əlavə edir
+
+        // Pseudo-selectors
+        $("li:first").css("border", "1px solid red"); // Birinci <li> element-ini seçib qırmızı border əlavə edir
+        $("li:last").css("border", "1px solid green"); // Sonuncu <li> element-ini seçib yaşıl border əlavə edir
+        $("li:odd").css("background-color", "#f2f2f2"); // Tək indeks-li <li> elementlərini seçib background-color dəyişir
+        $("li:even").css("background-color", "#BABABA"); // Cüt indeks-li <li> elementlərini seçib background-color dəyişir
+        $("li:nth-child(2)").css("background-color", "orange"); // 2-ci elementi select edir
+
+        // Event handling
+        // Click event
+        $("#click-me").click(() => {
+          alert("Button was clicked!");
+        });
+
+        // Mouseover event
+        $("#main-title")
+          .mouseover(function () {
+            $(this).addClass("highlight"); // Mouseover event-i vaxtı highlight class-ını add edir
+          })
+          .mouseout(function () {
+            $(this).removeClass("highlight"); // Mouseout event-i vaxtı highlight class-ını remove edir
+          });
+
+        // $("#click-me").on("click", () => {
+        //   alert("Button was clicked!");
+        // });
+
+        // DOM manipulation
+        // Text-i dəyişmək
+        $("#main-title").text("Updated jQuery Example"); // ID-si 'main-title' olan elementin text-ini dəyişir
+
+        // Remove and empty elements
+        // $("li.highlight").remove(); // 'highlight' class-lı elementləri silir
+        //$("#content").empty(); // ID-si 'content' olan elementin content-ini təmizləyir
+      });
+    </script>
+  </body>
+</html>
